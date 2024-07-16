@@ -28,4 +28,12 @@ defmodule Tutorials.Lists do
   def reverse([], acc), do: acc
   def reverse([h | t], acc), do: reverse(t, [h | acc])
 
+  @spec map(list(), any(), any()) :: any()
+  def map(elements, func, acc \\ [])
+  def map([], _, acc), do: acc
+  def map([h|t], func, acc), do: map(t, func, [func.(h) | acc])
+
+  def concat(list1, list2)
+  def concat([], list2), do: list2
+  def concat([h | t], list2), do: concat(t, [h|list2])
 end
